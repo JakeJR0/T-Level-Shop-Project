@@ -4,6 +4,20 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
+function get_product_count() {
+    global $con;
+    $sql = "
+    SELECT
+        COUNT(DISTINCT name)
+    FROM
+        products
+    ";
+
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_array($result);
+    return $row[0];
+}
+
 function get_products() {
     global $con;
     $sql = "SELECT * FROM products";
