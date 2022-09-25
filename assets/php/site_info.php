@@ -1,4 +1,8 @@
 <?php
+
+define('SITE_NAME', 'T-Level Shop');
+define('SITE_DESCRIPTION', 'This is a shop where students can purchase merchandise and resources for their T-Level course.');
+
 # Gets the products from the database
 define("HOST", "localhost");
 define("USER", "root");
