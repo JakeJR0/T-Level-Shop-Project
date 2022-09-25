@@ -1,9 +1,9 @@
 <?php
-
+# Site Information
 define('SITE_NAME', 'T-Level Shop');
 define('SITE_DESCRIPTION', 'This is a shop where students can purchase merchandise and resources for their T-Level course.');
 
-# Gets the products from the database
+# Database Settings
 define("HOST", "localhost");
 define("USER", "root");
 define("PASSWORD", "");
@@ -11,6 +11,8 @@ define("DATABASE", "t-level-shop");
 
 include 'get_data.php';
 include 'products.php';
+
+# Creates table products if it doesn't exist
 
 $sql = "
 CREATE TABLE IF NOT EXISTS products(
@@ -22,11 +24,13 @@ CREATE TABLE IF NOT EXISTS products(
 );
 ";
 
+# Runs the query
 if (mysqli_query($con, $sql)) {
-    # echo "Table products created successfully";
+    # Checks if the table is empty
     $rows_in_table = mysqli_num_rows(mysqli_query($con, "SELECT * FROM products"));
-
+    
     if ($rows_in_table == 0) {
+        # Adds the default products to the database
         insert_product("T Level Hoodie", "The unisex hoody offers a stylish look, benefiting from a fleece lining for comfort with a hooded design for extra production and a drawstring pull for an adjustable fit.", 29.99, "t_level_hoody.jpg");
         insert_product('T Level Polo', 'Unisex Polo Shirt crafted with climalite technology that removes sweat away from the skin to keep you feeling dry with a lightweight and breathable design.', 19.99, 't_level_polo.jpg');
         insert_product('Digital Production Design and Development Textbook', 'Prepare for exams and the employer set project using practice questions and project practice exercises. Get ready for the workplace with industry tip and real-world examples.', 28.90, 'DPDD_textbook.JPG');
@@ -34,6 +38,7 @@ if (mysqli_query($con, $sql)) {
     }
 
 } else {
+    # Returns an error
     echo "Error creating table: " . mysqli_error($con);
 }
 

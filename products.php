@@ -7,26 +7,34 @@ $products[] = get_products();
 <!DOCTYPE html>
 <html lang="en">
 <body>
+    <!-- Products Script -->
     <script src="assets/js/products.js"></script>
     <?php 
     define("PAGE_NAME", "Products");
     include 'assets/php/header.php';
     ?>
     <head>
+        <!-- Products styling -->
         <link rel="stylesheet" href="assets/css/product_style.css">
     </head>
     <div class="container-fluid" style="margin-bottom: 50px;">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center text-white" style="margin-top: 40px;margin-bottom: 40px;">Products</h1>
+                <!-- Page Name -->
+                <h1 class="text-center" style="margin-top: 40px;margin-bottom: 40px;"><?php echo PAGE_NAME; ?></h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
+                <!-- Products Group -->
                 <div class="card-group">
+                    <!-- Products -->
                     <?php 
+                    # Loops through the products array
                     foreach ($products as $productArray) {
+                        # Loops through the product array
                         foreach($productArray as $product) {
+                            # Formats the price
                             $formatted_price = "£".number_format($product['price'], 2);
                             $product_name = "product_".$product['ID'];
                             echo '

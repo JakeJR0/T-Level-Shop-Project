@@ -1,4 +1,5 @@
 <?php
+
 define("PAGE_NAME", "Products");
 include 'assets/php/site_info.php';
 include 'assets/php/header.php';

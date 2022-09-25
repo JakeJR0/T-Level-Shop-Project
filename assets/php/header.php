@@ -31,49 +31,60 @@ $pages = array(
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Page Title -->
     <title><?php echo SITE_NAME . ' - ' . PAGE_NAME; ?></title>
-    <meta name="description" content="This is a place where users can purchase products that could help them whilst on their journey on their T-Level course">
-    <meta property="og:type" content="website">
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/dark-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <meta property="theme-color" content="#765ab0">
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Meta Tags used for twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content=<?php echo $site_url; ?>>
     <meta property="twitter:title" content="<?php echo SITE_NAME. '- '. PAGE_NAME;?>">
     <meta property="twitter:description" content="<?php echo SITE_DESCRIPTION;?>">
     <meta property="twitter:image" content="assets/images/logos/TLevel-Logo-Black.svg">
+    <!-- Meta Tags used for Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo $site_url; ?>">
     <meta property="og:title" content="<?php echo SITE_NAME. ' - '. PAGE_NAME;?>">
     <meta property="og:description" content="<?php echo SITE_DESCRIPTION;?>">
-    <meta property="og:image" content=content="assets/images/logos/TLevel-Logo-Black.svg">
+    <meta property="og:image" content="assets/images/logos/TLevel-Logo-Black.svg">
+    <!-- Meta Tag used for discord embed colour -->
+    <meta property="theme-color" content="#765ab0">
 </head>
 
 <body>
+    <!-- Script for cart -->
+
     <script src="assets/js/products.js"></script>
+    
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark py-3">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="index.php">
             <span class="bs-icon-sm bs-icon-rounded bg-white d-flex justify-content-center align-items-center me-2 bs-icon" style="padding-left: 60px; padding-right: 60px;">
-
+            <!-- T-Level Logo -->
             <img src="assets/images/logos/TLevel-Logo-Black.svg" width=100 style="margin: auto;"></img>
 
             </span>
-            <span>T-Level Shop</span>
+            <span><?php echo SITE_NAME; ?></span>
         </a>
             <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
 
             <div class="collapse navbar-collapse" id="navcol-5">
                 <ul class="navbar-nav ms-auto">
                     <?php
+                    # Loops through the pages array
                     foreach ($pages as $page) {
                         $active = "";
+                        # Checks if the page is the active page (the page the user is currently on)
                         if ($page["route"] == $active_page) {
                             $active = "active";
                         }
+                        # Outputs the page into the navigation bar
                         echo '<li class="nav-item"><a class="nav-link ' . $active . '" href="' . $page["route"] . '">' . $page["name"] . '</a></li>';
                     }
                     ?>
