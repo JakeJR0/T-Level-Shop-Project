@@ -5,6 +5,10 @@ if (defined("PAGE_NAME") == false) {
 
 $site_route = $_SERVER["REQUEST_URI"];
 $site_route = explode("/", $site_route);
+$site_host = $_SERVER["HTTP_HOST"];
+
+$site_url = "https://" . $site_host . "/" . $site_route[1] . "/".$site_route[2];
+
 $active_page = $site_route[2];
 
 $pages = array(
@@ -29,12 +33,23 @@ $pages = array(
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>T-Level Shop - <?php echo PAGE_NAME ?></title>
+    <title><?php echo SITE_NAME . ' - ' . PAGE_NAME; ?></title>
     <meta name="description" content="This is a place where users can purchase products that could help them whilst on their journey on their T-Level course">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/dark-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <meta property="theme-color" content="#765ab0">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content=<?php echo $site_url; ?>>
+    <meta property="twitter:title" content="<?php echo SITE_NAME. '- '. PAGE_NAME;?>">
+    <meta property="twitter:description" content="<?php echo SITE_DESCRIPTION;?>">
+    <meta property="twitter:image" content="assets/images/logos/TLevel-Logo-Black.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo $site_url; ?>">
+    <meta property="og:title" content="<?php echo SITE_NAME. ' - '. PAGE_NAME;?>">
+    <meta property="og:description" content="<?php echo SITE_DESCRIPTION;?>">
+    <meta property="og:image" content=content="assets/images/logos/TLevel-Logo-Black.svg">
 </head>
 
 <body>
