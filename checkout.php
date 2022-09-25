@@ -1,7 +1,8 @@
 <?php
 define("PAGE_NAME", "Products");
-include 'assets/php/header.php';
 include 'assets/php/site_info.php';
+include 'assets/php/header.php';
+
 
 ?>
 <!DOCTYPE html>
@@ -26,11 +27,19 @@ include 'assets/php/site_info.php';
             empty_cart();
 
     ?>
-        <div id="" class="alert alert-success center-text">
-            <strong>Success!</strong> Your order has been placed. With a total of: <span id="total_cost"></span>
+        
+        <div id="" class="alert alert-success text-center" style="margin-bottom: 75%;">
+            <strong>Success!</strong> Your order has been placed.<br><br>With a total of <span id="total_cost"></span>
             <script>
-                document.getElementById("total_cost").innerHTML = "£" + total_price.toFixed(2);
+                function update_alert() {
+                    // Converts the total price to a float
+                    float_total_price = parseFloat(total_price);
+                    document.getElementById("total_cost").innerHTML = "£" + float_total_price.toFixed(2);
+                }
+
+                update_alert();
             </script>
+            <meta http-equiv="refresh" content="5;url=index.php" />
         </div>
         <?php
         } else {
