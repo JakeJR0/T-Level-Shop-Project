@@ -1,3 +1,4 @@
+/*
 .footer-bottom {
     position: relative;
     width: 100%;
@@ -6,4 +7,16 @@
     top: 0;
     margin-top: 100px;
     margin-bottom: 0px;
+}
+*/
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    margin-top: 32%;
+
 }

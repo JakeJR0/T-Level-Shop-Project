@@ -17,7 +17,7 @@ $products[] = get_products();
         <!-- Products styling -->
         <link rel="stylesheet" href="assets/css/product_style.css">
     </head>
-    <div class="container-fluid" style="margin-bottom: 50px;">
+    <div class="container-fluid" style="margin-bottom: -110px;">
         <div class="row">
             <div class="col-md-12">
                 <!-- Page Name -->
@@ -73,6 +73,7 @@ $products[] = get_products();
             </div>
         </div>
     </div>
+    
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <?php include 'assets/php/footer.php'; ?>
 </body>

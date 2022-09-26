@@ -16,7 +16,7 @@ $product_count = get_product_count();
             <lead><?php echo SITE_DESCRIPTION; ?></lead>
         </div>
 
-        <div class="container" style="margin-top: 160px; margin-bottom:300px;">
+        <div class="container" style="margin-top: 160px; margin-bottom:280px;">
             <div class="col-md-12">
                 <div class="row">
                     <div class="card">
